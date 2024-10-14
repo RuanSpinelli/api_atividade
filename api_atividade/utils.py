@@ -49,7 +49,7 @@ if __name__ == "__main__":
     #O crud
     
     
-    #insere_pessoas()
+    insere_pessoas()
     
     #alterar_pessoa()
     #apagar_pessoa()

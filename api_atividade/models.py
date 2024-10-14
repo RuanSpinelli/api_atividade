@@ -31,7 +31,7 @@ class Pessoas(Base):
     def delete(self):
         db_session.delete(self)
         db_session.commit()
-        
+
 
 class Atividades(Base):
     __tablename__ = "atividades"  # Corrigido o nome da tabela
@@ -39,6 +39,15 @@ class Atividades(Base):
     nome = Column(String(80))
     pessoa_id = Column(Integer, ForeignKey('pessoa.id'))
     pessoa = relationship("Pessoas")  # Corrigido para "Pessoas"
+
+    def save(self):
+        db_session.add(self)
+        db_session.commit()
+
+
+    def delete(self):
+        db_session.delete(self)
+        db_session.commit()
 
 def init_db():
     Base.metadata.create_all(bind=engine)
